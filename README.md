@@ -35,7 +35,7 @@ In this challenge, we ask you to build a predictive model that answers the quest
 
 ### Model Selection
 
-### Dependencies:
+### Dependencies
 * [NumPy](http://www.numpy.org/)
 * [IPython](http://ipython.org/)
 * [Pandas](http://pandas.pydata.org/)
@@ -43,7 +43,7 @@ In this challenge, we ask you to build a predictive model that answers the quest
 * [SciPy](http://www.scipy.org/)
 * [Matplotlib](http://matplotlib.org/)
 
-### Installation:
+### Installation
 
 To run this notebook interactively:
 
