@@ -1,15 +1,18 @@
 
+![App Screenshot](https://github.com/bharathngowda/machine_learning_titanic_survival_prediction/blob/main/titanic.jpg)
+
 ### Table of Contents
 
 1. [Problem Statement](#Problem-Statement)
 2. [Data Pre-Processing](#Data-Pre-Processing)
 3. [Exploratory Data Analysis](#Exploratory-Data-Analysis)
 4. [Feature Engineering](#Feature-Engineering)
-5. [Model Building](#Model-Building)
-6. [Model Evaluation](#Model-Evaluation)
-7. [Model Selection](#Final-Selection)
-8. [Dependencies](#Dependencies)
-9. [Installation](#Installation)
+5. [Model Training](#Model-Building)
+6. [Model Selection](#Model-Selection)
+7. [Hyperparameter Tuning](#Hyperparameter-Tuning)
+8. [Model Evaluation](#Model-Evaluation)
+9. [Dependencies](#Dependencies)
+10. [Installation](#Installation)
 
 ### Problem Statement
 
@@ -25,15 +28,59 @@ In this challenge, we ask you to build a predictive model that answers the quest
 
 ### Data Pre-Processing
 
+- Loaded the train and test data
+- Checking if the data is balanced i.e. whether the count of survived and not survived is equal or not in train set.
+- Checking for null values 
+- Imputing null values 
+
+
 ### Exploratory Data Analysis
+
+- Survival Status based on Sex
+- Survival Status based on Age
+- Survival Status based on Family Name
+- Survival Status based on Ticket Fare
+- Survival Status based on Passenger Class
+- Survival Status based on from where they embarked
+- Survival Status based on family type i.e., large, small or single
+- Survival Status based on Title i.e., Mr., Ms., Master, Royalty, Officer
+- Correlation plot 
 
 ### Feature Engineering
 
-### Model Building
+New features created are 'Title', 'Family Type', 'Last Name'
+
+### Model Training
+
+Models used for the training the dataset are - 
+
+- [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
+- [Linear Discriminant Analysis](https://scikit-learn.org/stable/modules/generated/sklearn.discriminant_analysis.LinearDiscriminantAnalysis.html)
+- [Linear Support Vector Classifier](https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html#sklearn.svm.LinearSVC)
+- [Support Vector Classifier](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html)
+- [Decision Tree](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html)
+- [Bagging](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.BaggingClassifier.html)
+- [Random Forest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
+- [K-Nearest Neighbours](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html)
+- [XGB Classifier](https://xgboost.readthedocs.io/en/latest/)
+
+### Model Selection
+
+Since the dataset is imbalanced, I have used [f1 score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html) as my scorer and used [k-fold cross-validation](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html)
+to select the model with highest **'f1 score'**.
+
+### Hyperparameter Tuning
+
+I have performed Hyperparameter Tuning on the selected model using [GridSearchCV](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html) and selected the best parameters to obtain the final model.
+
 
 ### Model Evaluation
 
-### Model Selection
+I fit the final model on the train data and predicted the survival status for the test data and obtained the below result-
+
+| Metric    | Score    |
+| :-------- | :------- |
+| Accuracy  |0.76315   |
 
 ### Dependencies
 * [NumPy](http://www.numpy.org/)
@@ -42,6 +89,7 @@ In this challenge, we ask you to build a predictive model that answers the quest
 * [SciKit-Learn](http://scikit-learn.org/stable/)
 * [SciPy](http://www.scipy.org/)
 * [Matplotlib](http://matplotlib.org/)
+* [Seaborn](https://seaborn.pydata.org/)
 
 ### Installation
 
